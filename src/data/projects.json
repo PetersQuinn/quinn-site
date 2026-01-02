@@ -12,7 +12,7 @@
     "languages": ["Python", "LaTeX"],
     "tools": ["scikit-learn", "NumPy", "Pandas", "Hugging Face Transformers", "DistilBERT"],
     "featured": 1,
-    "featuredOrder": 10,
+    "featuredOrder": 1,
     "domain": "ML - NLP",
     "year": 2025,
     "coverImage": "/projects/selective-trust-head.jpg",
@@ -76,7 +76,7 @@
     "languages": ["Python", "SQL"],
     "tools": ["Streamlit", "ChromaDB", "Ollama", "sentence-transformers", "PyPDF", "python-docx", "Google OAuth"],
     "featured": 1,
-    "featuredOrder": 1,
+    "featuredOrder": 4,
     "domain": "ML - Systems",
     "year": 2025,
     "coverImage": "/projects/local-email-rag.jpg",
@@ -122,6 +122,84 @@
       "/projects/local-email-rag-3.jpg"
     ]
   }
+,
+{
+  "slug": "nfl-kicker-field-goal-probability",
+  "title": "NFL Kicker Field-Goal Make Probability Model (Ensemble ML)",
+  "blurb": "A calibrated ensemble machine learning system that estimates NFL field-goal make probabilities using play-by-play, weather, and stadium context, designed for real decision support rather than binary prediction.",
+  "highlights": [
+    "Engineered contextual and environmental features including distance, wind, rain, roof state, and high-pressure situations.",
+    "Trained and evaluated a diverse suite of probabilistic models with an emphasis on calibration and decision quality.",
+    "Built a weighted ensemble that outperformed all single models in accuracy, calibration, and robustness."
+  ],
+  "skills": [
+    "Probabilistic Modeling",
+    "Model Calibration",
+    "Ensemble Learning",
+    "Sports Analytics",
+    "Decision Support Systems",
+    "Feature Engineering",
+    "Model Evaluation"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "scikit-learn",
+    "LightGBM",
+    "PyBART",
+    "Statsmodels",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Streamlit"
+  ],
+  "featured": 1,
+  "featuredOrder": 3,
+  "domain": "ML - Sports",
+  "year": 2025,
+  "coverImage": "/projects/nfl-kicker.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/KickersGalore-",
+    "paper": "https://github.com/PetersQuinn/KickersGalore-/blob/main/NFL_Kicker_Project___Final_Report%20(1).pdf",
+    "demo": "https://kickersgalore-nsakx3nxwlbgtdketifwma.streamlit.app/"
+  },
+  "stats": [
+    { "label": "Brier Score", "value": "0.10976 (Ensemble)" },
+    { "label": "AUC", "value": "0.7636" },
+    { "label": "ECE@10", "value": "0.0131" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a machine learning system to estimate the probability that an NFL field goal attempt will be successful.",
+        "The objective was to produce calibrated probabilities that can plug directly into decision tools such as expected points, win probability, and fourth-down strategy models."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Constructed a dataset of NFL field goal attempts using historical play-by-play, stadium, and weather data spanning multiple seasons.",
+        "Engineered key contextual features including kick distance, wind speed, precipitation indicators, roof state, surface type, and pressure-sensitive game situations.",
+        "Trained multiple probabilistic models including Logistic Regression, Bayesian Logistic Regression, GAMs, Bagging, LightGBM, and Bayesian Additive Regression Trees (BART).",
+        "Applied distance-aware calibration and built a weighted ensemble that combines model probability outputs to improve robustness in unusual or high-leverage scenarios.",
+        "Designed and deployed an interactive Streamlit application that allows users to input kick conditions and receive real-time probability estimates."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Achieved a best-in-class Brier Score of 0.10976 using a weighted ensemble, outperforming all individual models.",
+        "Delivered strong discrimination and reliability with AUC = 0.7636, PR-AUC(miss) = 0.3192, and ECE@10 = 0.0131.",
+        "Demonstrated that ensembling reduced variance and improved stability, particularly in edge cases where single models were overconfident or poorly calibrated."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/nfl-kicker.png",
+    "/projects/nfl-kicker-1.png",
+    "/projects/nfl-kicker-2.png"
+  ]
+}
 ,
 {
   "slug": "blockchain-fraud-detection",
@@ -196,7 +274,152 @@
   ]
 }
 ,
+{
+  "slug": "job-application-assistant",
+  "title": "Job Application Assistant & Intelligent Tracker",
+  "blurb": "A smart job application assistant that parses unstructured job descriptions, emails, and application responses into a centralized, searchable system with AI-driven insights.",
+  "highlights": [
+    "Parsed job descriptions, emails, and application responses into structured job records.",
+    "Prevented duplicate entries using GPT-based matching with a manual override option.",
+    "Enabled AI-assisted analysis of job fit, progress tracking, and skill gaps."
+  ],
+  "skills": [
+    "Information Extraction",
+    "Natural Language Processing",
+    "Workflow Automation",
+    "Decision Support Systems",
+    "Data Modeling",
+    "Human-in-the-Loop AI",
+    "UI/UX Design"
+  ],
+  "languages": ["Python", "HTML"],
+  "tools": [
+    "Streamlit",
+    "SQLite",
+    "OpenAI GPT-4o mini",
+    "Pandas",
+    "NumPy"
+  ],
+  "featured": 0,
+  "featuredOrder": 3,
+  "domain": "ML - Productivity",
+  "year": 2025,
+  "coverImage": "/projects/job-assistant.png",
+  "links": {
+    "github": "",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "App Type", "value": "Multi-page Streamlit Dashboard" },
+    { "label": "Storage", "value": "SQLite Database" },
+    { "label": "Inputs", "value": "Job Descriptions, Emails, Application Responses" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a smart job application assistant that centralizes and structures the entire job search process.",
+        "The system helps users track applications, analyze opportunities, and reflect on their readiness for different roles."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Developed a multi-page Streamlit app using Python, SQLite, and GPT-4o mini.",
+        "Parsed unstructured text inputs into structured job metadata including role, company, status, and matched skills.",
+        "Used GPT-based similarity checks to prevent duplicate entries while allowing manual override when needed.",
+        "Designed a customizable UI for job tracking, profile management, and AI-assisted evaluation."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Streamlined the job application workflow into a single intelligent assistant.",
+        "Enabled dynamic tracking of application progress and clearer identification of strong-fit opportunities.",
+        "Empowered users to identify skill gaps and take targeted actions to improve job readiness."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/job-assistant.png",
+    "/projects/job-assistant-1.png",
+    "/projects/job-assistant-2.png"
+  ]
+}
 
+,{
+  "slug": "cfp-ranking-bias-simulation",
+  "title": "Systemic Bias in College Football Playoff Rankings",
+  "blurb": "A simulation-based study of how preseason rankings and perception-driven biases propagate through College Football Playoff rankings, affecting accuracy, volatility, and playoff access.",
+  "highlights": [
+    "Simulated inverse preseason rankings to quantify how perception bias propagates through a season.",
+    "Designed and compared standard vs outcome-driven (harsher) committee scoring systems.",
+    "Evaluated tradeoffs between ranking accuracy, stability, and fan-facing volatility."
+  ],
+  "skills": [
+    "Simulation Modeling",
+    "Bias Analysis",
+    "Ranking Systems",
+    "Policy Evaluation",
+    "Experimental Design",
+    "Metrics Design",
+    "Sports Analytics"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "NumPy",
+    "Pandas",
+    "Matplotlib",
+    "Python Simulation Frameworks"
+  ],
+  "featured": 0,
+  "featuredOrder": 3,
+  "domain": "Sports",
+  "year": 2024,
+  "coverImage": "/projects/cfp-bias.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/CFPEvaluation",
+    "paper": "https://github.com/PetersQuinn/CFPEvaluation/blob/main/Evaluation_of_the_CFP_Perception_Bug_Final.pdf",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Teams Simulated", "value": "134 FBS Teams" },
+    { "label": "Season Length", "value": "12 Weeks" },
+    { "label": "Monte Carlo Runs", "value": "100 per scenario" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Studied how perception-driven biases such as preseason rankings and media narratives influence College Football Playoff rankings.",
+        "Focused on how incorrect initial beliefs propagate through rankings and affect playoff access, accuracy, and fairness."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Built simulation models representing both a small controlled league and the full 134-team FBS ecosystem.",
+        "Initialized rankings using an intentionally inverted preseason poll to stress-test ranking inertia.",
+        "Defined probabilistic game outcomes based on true team strength differentials.",
+        "Designed a CFP-style points system and compared a standard committee approach against a harsher, outcome-driven variant.",
+        "Tracked ranking evolution using custom metrics including AvgDiff, MaxDiff, MaxRise, and Top-25 specific accuracy measures."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Found that preseason bias meaningfully persists under conservative ranking systems, even with correct on-field outcomes.",
+        "Demonstrated that harsher, performance-driven committees converge to true team strength faster but introduce greater early-season volatility.",
+        "Quantified tradeoffs between ranking accuracy, stability, and fan-facing excitement, highlighting structural disadvantages for lower-perception teams."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/cfp-bias.png",
+    "/projects/cfp-bias-1.png"
+  ]
+}
 ,
 {
   "slug": "crypto-options-price-prediction",
