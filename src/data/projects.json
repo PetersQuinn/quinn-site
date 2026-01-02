@@ -275,6 +275,81 @@
 }
 ,
 {
+  "slug": "project-performance-insights-ppi",
+  "title": "Project Performance Insights (PPI)",
+  "blurb": "A Streamlit-based, LLM-powered dashboard for extracting insights, detecting risks, and tracking KPIs across complex project lifecycles using document ingestion and snapshot comparison.",
+  "highlights": [
+    "Built an end-to-end project intelligence system that ingests documents, tracks snapshots, and surfaces executive-level insights.",
+    "Used Azure OpenAI to generate summaries, detect emerging risks, and analyze changes across project updates.",
+    "Designed a modular ingestion and comparison pipeline supporting structured KPIs and unstructured text."
+  ],
+  "skills": [
+    "LLM-Powered Analytics",
+    "Document Ingestion Pipelines",
+    "Risk Detection",
+    "KPI Tracking",
+    "Snapshot Comparison",
+    "Executive Reporting",
+    "System Design"
+  ],
+  "languages": ["Python", "SQL"],
+  "tools": [
+    "Streamlit",
+    "Azure OpenAI",
+    "SQLite",
+    "Pandas",
+    "Python-docx",
+    "openpyxl"
+  ],
+  "featured": 0,
+  "featuredOrder": 7,
+  "domain": "ML - Systems",
+  "year": 2025,
+  "coverImage": "/projects/ppi.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/executive_insights",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Interface", "value": "Streamlit Dashboard" },
+    { "label": "LLM Provider", "value": "Azure OpenAI (GPT-4o mini)" },
+    { "label": "Storage", "value": "SQLite (snapshot-based)" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a project intelligence dashboard to help teams extract insights, track KPIs, and identify risks across long-running project lifecycles.",
+        "The system focuses on executive-level visibility by summarizing complex project updates and highlighting meaningful changes over time."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Developed a multi-page Streamlit application for viewing active project insights and historical KPI trends.",
+        "Implemented a modular ingestion pipeline supporting DOCX, Excel, transcripts (VTT), and early-stage parsers for emails, PDFs, and presentations.",
+        "Stored structured project snapshots in a SQLite database, enabling snapshot-to-snapshot comparison without relying on raw documents.",
+        "Used Azure OpenAI with project-specific prompts to generate executive summaries, detect emerging risks, and analyze cross-snapshot deltas.",
+        "Built comparison and risk-detection utilities to surface changes in scope, budget, timeline, sentiment, and KPIs."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Demonstrated reliable extraction of structured project snapshots and executive summaries from heterogeneous inputs.",
+        "Enabled longitudinal analysis of project performance, risks, and trends across multiple updates.",
+        "Delivered a scalable, extensible architecture that can support richer parsers, caching, and integrations with collaboration tools."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/ppi.png",
+    "/projects/ppi-1.png"
+  ]
+}
+,
+{
   "slug": "job-application-assistant",
   "title": "Job Application Assistant & Intelligent Tracker",
   "blurb": "A smart job application assistant that parses unstructured job descriptions, emails, and application responses into a centralized, searchable system with AI-driven insights.",
@@ -302,7 +377,7 @@
   ],
   "featured": 0,
   "featuredOrder": 3,
-  "domain": "ML - Productivity",
+  "domain": "ML - Systems",
   "year": 2025,
   "coverImage": "/projects/job-assistant.png",
   "links": {
