@@ -1,0 +1,490 @@
+[
+  {
+    "slug": "selective-trust-head",
+    "title": "Selective Trust Head — Inference-Time Reliability for LLMs",
+    "blurb": "Ranks LLM answers by trustworthiness using single-forward-pass uncertainty signals (selective prediction).",
+    "highlights": [
+      "Leakage-safe features from token distributions (entropy, margin, prob mass).",
+      "Optimized for ranking (Average Precision) in an imbalanced setting.",
+      "Reported ROC-AUC, AP, Brier, and calibration behavior."
+    ],
+    "skills": ["LLM Reliability", "Selective Prediction", "Calibration", "Feature Engineering", "Natural Language Processing", "Abstention", "Supervised Learning", "Class-Imbalance", "Tokenization", "Sliding Windows"],
+    "languages": ["Python", "LaTeX"],
+    "tools": ["scikit-learn", "NumPy", "Pandas", "Hugging Face Transformers", "DistilBERT"],
+    "featured": 1,
+    "featuredOrder": 10,
+    "domain": "ML - NLP",
+    "year": 2025,
+    "coverImage": "/projects/selective-trust-head.jpg",
+    "links": {
+      "github": "https://github.com/PetersQuinn/ReliabilityInLLMs",
+      "paper": "",
+      "demo": ""
+    },
+    "stats": [
+      { "label": "Task", "value": "Selective prediction / ranking" },
+      { "label": "Signals", "value": "Single forward pass" },
+      { "label": "Metrics", "value": "AP, ROC-AUC, Brier, ECE" }
+    ],
+    "sections": [
+      {
+        "title": "What",
+        "body": [
+          "LLMs often sound confident while being wrong. This project trains a lightweight trust head that scores answers by reliability using only inference-time uncertainty signals from a single forward pass.",
+          "Rather than binary correctness, the objective is selective prediction: rank answers so that the most trustworthy outputs can be prioritized under limited coverage."
+        ]
+      },
+      {
+        "title": "How",
+        "body": [
+          "Engineered leakage-safe uncertainty features from token-level start and end distributions, including entropy, span-vs-null margins, top-2 gaps, and probability mass summaries.",
+          "Trained simple trust heads such as logistic regression to map these features to a scalar trust score, optimizing ranking quality under class imbalance using Average Precision."
+        ]
+      },
+      {
+        "title": "Results",
+        "body": [
+          "Achieved strong ranking performance despite a signal-limited regime in which multiple model families converged to nearly identical selective curves.",
+          "Evaluated probability alignment and reliability using Brier score and Expected Calibration Error to assess when trust scores behave meaningfully as probabilities."
+        ]
+      },
+      {
+        "title": "Key Takeaways",
+        "body": [
+          "Inference-time uncertainty contains real but limited separable signal, making it effective for triage rather than full verification.",
+          "The primary value lies in prioritization: surfacing high-trust answers first and routing low-trust outputs to abstention or verification."
+        ]
+      }
+    ],
+    "images": [
+      "/projects/selective-trust-head-1.jpg",
+      "/projects/selective-trust-head-2.jpg",
+      "/projects/selective-trust-head.jpg"
+    ]
+  }
+,
+  {
+    "slug": "fully-local-email-rag",
+    "title": "Fully Local Personal Email RAG System",
+    "blurb": "Privacy-first Retrieval-Augmented Generation system that lets users query personal Gmail data using a fully local LLM with no external APIs or cloud inference.",
+    "highlights": [
+      "End-to-end local RAG pipeline with Gmail, PDF, and DOCX ingestion.",
+      "Strict per-user vector isolation with zero cross-user leakage.",
+      "Sub-100ms embedding and retrieval latency in a fully offline setup."
+    ],
+    "skills": ["Retrieval-Augmented Generation", "Privacy-Preserving ML", "System Design", "Embedding-Based Information Retrieval", "Local LLMs", "Document Parsing"],
+    "languages": ["Python", "SQL"],
+    "tools": ["Streamlit", "ChromaDB", "Ollama", "sentence-transformers", "PyPDF", "python-docx", "Google OAuth"],
+    "featured": 1,
+    "featuredOrder": 1,
+    "domain": "ML - Systems",
+    "year": 2025,
+    "coverImage": "/projects/local-email-rag.jpg",
+    "links": {
+      "github": "https://github.com/PetersQuinn/PersonalEmailRAGSystem",
+      "paper": "https://github.com/PetersQuinn/PersonalEmailRAGSystem/blob/main/EvaluationReport.md",
+      "demo": ""
+    },
+    "stats": [
+      { "label": "LLM", "value": "Qwen-8B (local)" },
+      { "label": "Data", "value": "Gmail + PDF/DOCX" },
+      { "label": "Latency", "value": "<100ms embed + retrieve" }
+    ],
+    "sections": [
+      {
+        "title": "What",
+        "body": [
+          "Built a privacy-first Retrieval-Augmented Generation system that allows users to query their personal Gmail inbox using a fully local LLM.",
+          "The system supports attachment-aware search, enabling PDF and DOCX documents to be retrieved, cited, and reasoned over alongside email content."
+        ]
+      },
+      {
+        "title": "How",
+        "body": [
+          "Ingested Gmail inboxes via OAuth and parsed email bodies plus PDF and DOCX attachments.",
+          "Embedded content using a local sentence-transformer and stored vectors in per-user ChromaDB collections to enforce strict isolation.",
+          "Implemented similarity retrieval, prompt assembly, and answer generation with Qwen-8B running locally via Ollama, with a Streamlit-based UI."
+        ]
+      },
+      {
+        "title": "Results",
+        "body": [
+          "Successfully answered inbox-only and document-specific queries with citation-grounded responses.",
+          "Demonstrated zero cross-user leakage, with unauthorized queries reliably triggering refusal behavior.",
+          "Achieved sub-100ms embedding and retrieval latency with fully offline, end-to-end execution."
+        ]
+      }
+    ],
+    "images": [
+        "/projects/local-email-rag-1.jpg",
+      "/projects/local-email-rag-2.jpg",
+      "/projects/local-email-rag.jpg",
+      "/projects/local-email-rag-3.jpg"
+    ]
+  }
+,
+{
+  "slug": "blockchain-fraud-detection",
+  "title": "Blockchain Fraud Detection with Graph & Unsupervised Anomaly Models",
+  "blurb": "Unsupervised fraud detection pipeline for Ethereum transfers that combines graph-based network features with anomaly-scoring models to surface suspicious activity at scale.",
+  "highlights": [
+    "Parsed millions of Ethereum transfers into shard-aware transaction networks.",
+    "Combined graph-structural features with autoencoder reconstruction error and Isolation Forest scores.",
+    "Produced ranked, threshold-adjustable anomaly outputs for adaptive fraud detection."
+  ],
+  "skills": [
+    "Anomaly Detection",
+    "Graph-Based Machine Learning",
+    "Network Analysis",
+    "Risk Scoring",
+    "Large-Scale Data Processing",
+    "Unsupervised Learning",
+    "Feature Engineering"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "scikit-learn",
+    "NetworkX",
+    "NumPy",
+    "Pandas",
+    "Matplotlib",
+    "PyTorch"
+  ],
+  "featured": 1,
+  "featuredOrder": 2,
+  "domain": "ML - Finance",
+  "year": 2025,
+  "coverImage": "/projects/blockchain-fraud.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/BlockChainProject",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Models", "value": "Autoencoder, Isolation Forest, KMeans" },
+    { "label": "Data", "value": "1,000 Ethereum blocks" },
+    { "label": "Output", "value": "Ranked anomaly scores" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built an unsupervised fraud detection system for Ethereum transactions that identifies anomalous behavior without labeled fraud data.",
+        "The goal was to surface suspicious addresses and transfers by combining behavioral anomalies with graph-structural signals."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Parsed millions of Ethereum transfers, engineered address-level graph features, and constructed shard-aware transaction networks.",
+        "Trained an autoencoder, Isolation Forest, and KMeans to model normal transaction behavior using reconstruction error and anomaly scores.",
+        "Computed node-level network metrics and combined them with model outputs to produce unified risk scores."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Developed a threshold-adjustable anomaly detection pipeline that adapts sensitivity based on risk tolerance.",
+        "Generated ranked anomaly outputs and demonstrated that graph features materially improved the stability and distinctiveness of fraud detection."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/blockchain-fraud.png",
+    "/projects/blockchain-fraud-1.png",
+    "/projects/blockchain-fraud-2.png"
+  ]
+}
+,
+
+,
+{
+  "slug": "crypto-options-price-prediction",
+  "title": "Crypto Options Price Prediction with Gradient Boosting Trees",
+  "blurb": "Time-series-aware regression model that predicts BTC/ETH option trade prices from Binance data using engineered moneyness features and tuned GradientBoostingRegressor.",
+  "highlights": [
+    "Engineered log moneyness, signed moneyness, and ITM flags to capture option structure and nonlinearity.",
+    "Used TimeSeriesSplit cross-validation and a custom composite objective (0.7·R² + 0.3·Normalized RMSE) for realistic out-of-sample tuning.",
+    "Achieved test R² = 0.815 and normalized RMSE = 0.570, with permutation importance confirming core pricing drivers."
+  ],
+  "skills": [
+    "Time Series Cross-Validation",
+    "Feature Engineering",
+    "Option Pricing Modeling",
+    "Supervised Regression",
+    "Hyperparameter Optimization",
+    "Model Evaluation",
+    "Permutation Importance"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "scikit-learn",
+    "NumPy",
+    "Pandas",
+    "Matplotlib"
+  ],
+  "featured": 0,
+  "featuredOrder": 3,
+  "domain": "ML - Finance",
+  "year": 2025,
+  "coverImage": "/projects/crypto-options.png",
+  "links": {
+    "github": "",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Model", "value": "GradientBoostingRegressor" },
+    { "label": "CV", "value": "TimeSeriesSplit (5-fold)" },
+    { "label": "Test", "value": "R² = 0.815, NRMSE = 0.570" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a regression model to predict cryptocurrency option trade prices using Binance BTC/ETH options transaction data.",
+        "Focused on out-of-sample performance and interpretability by modeling how moneyness, time to maturity, and realized volatility relate to observed trade prices."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Preprocessed transaction data and encoded option type (call/put) and underlying asset (BTC/ETH), then engineered log moneyness, signed moneyness, and an in-the-money (ITM) flag.",
+        "Benchmarked linear regression against tree ensembles, then selected GradientBoostingRegressor for nonlinear structure and stable generalization.",
+        "Switched from shuffled KFold to TimeSeriesSplit to avoid overly optimistic validation and tuned hyperparameters with RandomizedSearchCV using a custom composite score (0.7·R² + 0.3·Normalized RMSE).",
+        "Validated drivers with permutation importance and generated diagnostic plots including actual vs predicted pricing."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Achieved strong out-of-sample accuracy on the test set with R² = 0.815 and normalized RMSE = 0.570.",
+        "Identified moneyness, underlying price, strike price, and realized volatility lags as the dominant drivers of predicted option prices.",
+        "Produced a time-series-aware, reproducible modeling pipeline suitable for practical financial forecasting and evaluation."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/crypto-options.png",
+    "/projects/crypto-options-1.png"
+  ]
+}
+,
+{
+  "slug": "llm-to-sql-duckdb-poc",
+  "title": "LLM-to-SQL Analytics POC with DuckDB",
+  "blurb": "Node.js proof-of-concept that routes natural-language questions to safe, pre-defined SQL analytics functions over a DuckDB-backed dataset, then returns results in natural language using an OpenAI LLM.",
+  "highlights": [
+    "Built a lightweight analytics stack with Node.js + DuckDB over a CSV-backed view for fast local querying.",
+    "Used an LLM as a JSON-only router to select a single allowed query function, reducing prompt-to-SQL risk.",
+    "Returned human-readable answers by executing parameterized SQL and formatting results consistently."
+  ],
+  "skills": [
+    "LLM Tool Routing",
+    "Text-to-SQL Systems",
+    "Prompt Engineering",
+    "SQL Analytics",
+    "API Integration",
+    "Data Layer Design"
+  ],
+  "languages": ["JavaScript", "SQL"],
+  "tools": [
+    "Node.js",
+    "DuckDB",
+    "OpenAI API",
+    "dotenv"
+  ],
+  "featured": 0,
+  "featuredOrder": 6,
+  "domain": "ML - Systems",
+  "year": 2025,
+  "coverImage": "/projects/llm-to-sql-poc.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/VoyaNodeJS",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Backend", "value": "DuckDB (CSV view)" },
+    { "label": "Interface", "value": "Natural language → SQL analytics" },
+    { "label": "Safety pattern", "value": "JSON router + whitelisted functions" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a proof-of-concept assistant that answers natural-language analytics questions by translating intent into database queries and returning results in plain English.",
+        "Instead of generating arbitrary SQL, the system routes user requests to a small set of approved analytics functions to keep execution predictable and safe."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Initialized an in-memory DuckDB instance and created a CSV-backed VIEW (fraud_data) for fast querying without standing up external infrastructure.",
+        "Implemented a SQL layer with whitelisted functions (total records, fraud count, year summary) using parameterized queries to avoid injection and ensure consistent outputs.",
+        "Used an OpenAI model as a strict JSON-only router that selects exactly one function to call and optionally extracts parameters such as a tax/form year.",
+        "Wrapped everything in a simple CLI runner that initializes the data layer, calls the LLM router, executes the chosen SQL function, and formats a natural-language response."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Demonstrated reliable end-to-end behavior: natural language questions were mapped to the correct analytics function and answered with database-grounded results.",
+        "Reduced text-to-SQL risk by constraining the LLM to structured routing decisions rather than free-form query generation.",
+        "Delivered a small, modular architecture (data layer, SQL layer, LLM router, runner) that can be extended with additional safe analytics functions."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/llm-to-sql-poc.png",
+    "/projects/llm-to-sql-poc-1.png"
+  ]
+}
+,
+{
+  "slug": "water-rebate-cba-monte-carlo",
+  "title": "Water Rebate Cost-Benefit Analysis with Monte Carlo Risk Modeling",
+  "blurb": "Python cost-benefit and uncertainty analysis comparing high-efficiency toilet (HET) and smart irrigation controller (SIC) rebate programs, producing per-rebate and program-level NPV metrics with Monte Carlo sensitivity modeling.",
+  "highlights": [
+    "Built a deterministic CBA engine that computes per-rebate savings, PV savings, NPV, B/C ratio, payback, ROI, and gallons-per-dollar for HET vs SIC vs status quo.",
+    "Scaled results to a one-year cohort program snapshot using eligible-household counts and annual adoption rates to estimate program PV savings, program NPV, and annual gallons saved.",
+    "Implemented a Monte Carlo risk model with triangular parameter sampling plus water-price escalation and SIC climate variability to quantify distributional outcomes and P(NPV > 0)."
+  ],
+  "skills": [
+    "Cost-Benefit Analysis",
+    "Monte Carlo Simulation",
+    "Risk Modeling",
+    "Sensitivity Analysis",
+    "NPV Modeling",
+    "Scenario Modeling",
+    "Impact Estimation",
+    "Data Analysis"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "argparse"
+  ],
+  "featured": 0,
+  "featuredOrder": 7,
+  "domain": "Finance",
+  "year": 2025,
+  "coverImage": "/projects/water-rebate-cba.png",
+  "links": {
+    "github": "https://github.com/PetersQuinn/Group-Project",
+    "paper": "https://github.com/PetersQuinn/Group-Project/blob/main/CEE351_Group_Project_Report.pdf",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Methods", "value": "Deterministic CBA + Monte Carlo" },
+    { "label": "Distributions", "value": "Triangular (low/central/high)" },
+    { "label": "Outputs", "value": "Per-rebate + program NPV distributions" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a Python-based cost-benefit framework to compare two water conservation rebate programs: high-efficiency toilets (HET) and smart irrigation controllers (SIC), against a status quo baseline.",
+        "Extended the deterministic analysis with a Monte Carlo uncertainty model to quantify risk, variability, and the probability of positive NPV under realistic parameter uncertainty."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Loaded a structured assumptions table and computed per-rebate economics including annual realized gallons saved (with rebound factors), annual dollar savings, present value savings via annuity factors, NPV, B/C ratio, payback, ROI, and gallons-per-dollar.",
+        "Scaled per-rebate outputs into a one-year program snapshot using eligible-household counts and annual adoption rates to estimate total program cost, program PV savings, program NPV, and annual water savings.",
+        "Ran Monte Carlo simulations by sampling each assumption from triangular distributions (low/central/high), adding water price escalation via a growing-annuity PV factor, and applying a SIC-only climate factor to reflect outdoor variability.",
+        "Summarized outcome distributions with mean, percentiles, and P(NPV > 0), and generated histograms for both per-rebate and program-level NPVs."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Produced a reproducible decision-support pipeline that reports both point-estimate CBA metrics and full uncertainty distributions for HET and SIC program options.",
+        "Enabled threshold-based policy interpretation using probability-of-positive-NPV and percentile bands to compare risk-adjusted performance across rebate alternatives.",
+        "Delivered modular scripts (deterministic + Monte Carlo) that can be extended with additional technologies, alternative adoption assumptions, or expanded scenario ranges."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/water-rebate-cba.png"
+  ]
+}
+,
+{
+  "slug": "sp500-index-replication-nn",
+  "title": "S&P 500 Index Replication with Neural Networks",
+  "blurb": "Neural network index-tracking pipeline that reconstructs S&P 500 returns using a small subset of constituents, optimizing both tracking error and portfolio efficiency under a reproducible, time-aware evaluation protocol.",
+  "highlights": [
+    "Converted 360 constituent price series into log returns, standardized inputs, and ranked stocks by Pearson correlation with the index to form a candidate universe.",
+    "Trained a compact Keras MLP on top-correlated subsets and tuned subset size and hyperparameters via randomized search with a time-based validation split and early stopping.",
+    "Replicated index behavior using ~30 stocks with RMSE ≈ 0.00799 on test returns, while explicitly trading off accuracy vs. portfolio efficiency (1 - n/360)."
+  ],
+  "skills": [
+    "Index Replication",
+    "Financial Time Series Modeling",
+    "Feature Selection",
+    "Neural Network Regression",
+    "Time-Aware Validation",
+    "Hyperparameter Search",
+    "Reproducible ML"
+  ],
+  "languages": ["Python"],
+  "tools": [
+    "TensorFlow",
+    "Keras",
+    "scikit-learn",
+    "NumPy",
+    "Pandas",
+    "Matplotlib"
+  ],
+  "featured": 0,
+  "featuredOrder": 5,
+  "domain": "ML - Finance",
+  "year": 2025,
+  "coverImage": "/projects/sp500-replication.png",
+  "links": {
+    "github": "",
+    "paper": "",
+    "demo": ""
+  },
+  "stats": [
+    { "label": "Subset size", "value": "30 / 360 constituents" },
+    { "label": "Objective", "value": "0.7·NRMSE + 0.3·Efficiency" },
+    { "label": "Test RMSE", "value": "≈ 0.00799 (log-return scale)" }
+  ],
+  "sections": [
+    {
+      "title": "What",
+      "body": [
+        "Built a neural network system to replicate S&P 500 index dynamics using only a small subset of its 360 constituents.",
+        "Optimized for real-world index tracking by combining normalized RMSE (tracking error proxy) with an explicit efficiency term that rewards smaller portfolios."
+      ]
+    },
+    {
+      "title": "How",
+      "body": [
+        "Transformed daily prices into log returns, aligned time indices, and standardized features with StandardScaler to stabilize training across diverse stocks.",
+        "Ranked constituents by absolute Pearson correlation with the index to create an ordered universe and trained models on the top-k subsets.",
+        "Implemented a time-aware validation split using the most recent portion of training data as validation, then tuned subset size and MLP hyperparameters with randomized sampling over learning rate, activation, batch size, and hidden units.",
+        "Applied early stopping and fixed random seeds via tf.keras.utils.set_random_seed to ensure reproducible training and evaluation."
+      ]
+    },
+    {
+      "title": "Results",
+      "body": [
+        "Achieved strong out-of-sample tracking with RMSE ≈ 0.00799 on test log returns while using ~30 stocks.",
+        "Produced a compact replication approach that explicitly balances tracking accuracy with portfolio simplicity via an efficiency-aware objective.",
+        "Validated end-to-end reproducibility with fixed seeds and consistent grading on held-out test data, and visualized cumulative reconstructed index paths against true S&P 500."
+      ]
+    }
+  ],
+  "images": [
+    "/projects/sp500-replication.png"
+  ]
+}
+
+
+]

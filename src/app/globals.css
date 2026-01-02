@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
+/* Light mode palette (default) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F7F2;
+  --foreground: #000000;
+
+  --muted: #D5D5C6;
+  --muted-foreground: 58 58 58; /* #3A3A3A */
+
+  --border: #1A1A1A;
+
+  --accent: #457B9D;
+  --accent-foreground: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark mode palette (when html has class="dark") */
+html.dark {
+  --background: #0b1220;
+  --foreground: #ededed;
+
+  --muted: #111827;
+  --muted-foreground: 156 163 175;
+
+  --border: #2a3446;
+
+  --accent: #5fa8d3;
+  --accent-foreground: #071018;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Helps browser-rendered controls match theme */
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+/* Utility helpers so you can use your tokens in className */
+.text-muted-foreground {
+  color: rgb(var(--muted-foreground));
+}
+
+.border-app {
+  border-color: var(--border);
+}
+
+.bg-muted {
+  background: var(--muted);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.bg-app {
+  background: var(--background);
+}
+
+.bg-app-glass {
+  background: color-mix(in srgb, var(--background) 80%, transparent);
+}
+
+/* Line clamp utilities — standards-first with WebKit fallback */
+.clamp-2,
+.clamp-3 {
+  overflow: hidden;
+}
+
+/* Fallback for current browsers (Chrome, Edge, Safari) */
+@supports (-webkit-line-clamp: 1) {
+  .clamp-2,
+  .clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+
+  .clamp-2 {
+    -webkit-line-clamp: 2;
+  }
+
+  .clamp-3 {
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Standards-based implementation (future-proof) */
+@supports (line-clamp: 1) {
+  .clamp-2,
+  .clamp-3 {
+    display: block;
+  }
+
+  .clamp-2 {
+    line-clamp: 2;
+  }
+
+  .clamp-3 {
+    line-clamp: 3;
+  }
+}
+
